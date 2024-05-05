@@ -10,21 +10,27 @@ function sortear() {
    let sorteados = [];
    let numero;
 
-   for (let i = 0; i < quantidade; i++) {
-    numero = obterNumeroAleatorio(de, ate);
+   if(de > ate) {
+    alert("Revise os dados")
 
-    while(sorteados.includes(numero)) {
+}else {
+ 
+    for (let i = 0; i < quantidade; i++) {
         numero = obterNumeroAleatorio(de, ate);
-    }
-
-    sorteados.push(numero);
-   }
-
-   let resultado = document.getElementById('resultado');
     
-   resultado.innerHTML =  `<label class="texto__paragrafo">Números sorteados: ${sorteados}</label>`
-
-   alterarStatusBotao();
+        while(sorteados.includes(numero)) {
+            numero = obterNumeroAleatorio(de, ate);
+        }
+    
+        sorteados.push(numero);
+       }
+    
+       let resultado = document.getElementById('resultado');
+        
+       resultado.innerHTML =  `<label class="texto__paragrafo">Números sorteados: ${sorteados}</label>`
+    
+       alterarStatusBotao();
+}
 } 
 
 function reiniciar() {
